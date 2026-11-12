@@ -1,0 +1,6 @@
+{
+  "name": "AlgoViz Pro – Interactive Algorithm Learning Platform",
+  "description": "Interactive sorting algorithm learning and visualization platform with step-by-step engine, code studio, comparison lab, real-world applications, practicals, quizzes, and AlgoBuddy AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
