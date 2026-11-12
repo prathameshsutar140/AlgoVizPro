@@ -1,4 +1,4 @@
-# AlgoViz Pro – Interactive Sorting Algorithm Learning & Visualization Platform
+# ⚡ AlgoViz Pro – Interactive Sorting Algorithm Learning Platform
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![React](https://img.shields.io/badge/React-19.0-61dafb.svg?logo=react)](https://react.dev/)
@@ -9,546 +9,347 @@
 [![Google Gemini](https://img.shields.io/badge/Google_Gemini-3.8_Flash-8e75ff.svg?logo=google)](https://ai.google.dev/)
 [![MSBTE 22317](https://img.shields.io/badge/MSBTE_Course-22317_Aligned-10b981.svg)](https://msbte.org.in/)
 
-> **AlgoViz Pro** is an enterprise-grade, full-stack educational platform engineered to transform how students and software engineers understand, implement, benchmark, and deploy sorting algorithms.
-> Specifically curriculum-mapped for **MSBTE Diploma Computer Technology & Computer Engineering (Course 22317 - Data Structures Using 'C')**, university B.Tech/B.E. Computer Science students, and engineering candidates preparing for technical interviews and viva voce examinations.
+> 🌟 **AlgoViz Pro** is a friendly, easy-to-use web application to learn how sorting algorithms work inside computer memory.  
+> 🎓 **Specially designed for:** MSBTE Diploma students (Course **22317: Data Structures Using 'C'**), Computer Engineering students, IT students, and programming beginners preparing for exams and interviews.
 
 ---
 
-## 📑 Table of Contents
+## 📑 Quick Table of Contents
 
-- [1. Executive Summary & Mission](#-1-executive-summary--mission)
-- [2. Four Core Educational Pillars](#-2-four-core-educational-pillars)
-- [3. Complete Step-by-Step Setup & Installation Guide](#-3-complete-step-by-step-setup--installation-guide)
-  - [Prerequisites](#prerequisites)
-  - [Step 1: Clone Repository](#step-1-clone-repository)
-  - [Step 2: Install Dependencies](#step-2-install-dependencies)
-  - [Step 3: Configure Environment Variables](#step-3-configure-environment-variables)
-  - [Step 4: Launch Development Server](#step-4-launch-development-server)
-  - [Step 5: Production Build & Deployment](#step-5-production-build--deployment)
-  - [Troubleshooting & FAQs](#troubleshooting--faqs)
-- [4. Technology Stack & Architectural Overview](#-4-technology-stack--architectural-overview)
-- [5. Implemented Algorithms & Complexity Reference Matrix](#-5-implemented-algorithms--complexity-reference-matrix)
-- [6. Deep-Dive Module Breakdown (10 Core Modules)](#-6-deep-dive-module-breakdown-10-core-modules)
-  - [Module 1: Interactive Sorting Visualizer](#module-1-interactive-sorting-visualizer)
-  - [Module 2: Algorithm Theory & Viva Voce Masterclass](#module-2-algorithm-theory--viva-voce-masterclass)
-  - [Module 3: Code Learning Studio (5 Languages)](#module-3-code-learning-studio-5-languages)
-  - [Module 4: Sandboxed Code Playground & Test Runner](#module-4-sandboxed-code-playground--test-runner)
-  - [Module 5: Multi-Algorithm Comparison Benchmark Lab](#module-5-multi-algorithm-comparison-benchmark-lab)
-  - [Module 6: Sorting in Real-World Enterprise Systems](#module-6-sorting-in-real-world-enterprise-systems)
-  - [Module 7: MSBTE Lab Practicals (Course 22317) & PDF Export](#module-7-msbte-lab-practicals-course-22317--pdf-export)
-  - [Module 8: Interactive DSA Quiz Assessment System](#module-8-interactive-dsa-quiz-assessment-system)
-  - [Module 9: Gamified Algorithm Challenge Quests](#module-9-gamified-algorithm-challenge-quests)
-  - [Module 10: AlgoBuddy AI Tutor (Gemini 3.8 Flash + Offline Fallback)](#module-10-algobuddy-ai-tutor-gemini-38-flash--offline-fallback)
-- [7. MSBTE Diploma (Course 22317) Curriculum Mapping](#-7-msbte-diploma-course-22317-curriculum-mapping)
-- [8. Real-Time Event Engine & Audio Synthesis Architecture](#-8-real-time-event-engine--audio-synthesis-architecture)
-- [9. Backend REST API Reference](#-9-backend-rest-api-reference)
-- [10. Keyboard Navigation & Accessibility](#-10-keyboard-navigation--accessibility)
-- [11. Repository & Directory Structure](#-11-repository--directory-structure)
-- [12. Extended Documentation Library](#-12-extended-documentation-library)
-- [13. License & Academic Attribution](#-13-license--academic-attribution)
+- [🌟 1. What is AlgoViz Pro?](#-1-what-is-algoviz-pro)
+- [🎯 2. Four Ways You Will Learn](#-2-four-ways-you-will-learn)
+- [🚀 3. Easy Step-by-Step Setup Guide](#-3-easy-step-by-step-setup-guide)
+  - [Prerequisites](#-prerequisites)
+  - [Step 1: Download or Clone the Project](#step-1-download-or-clone-the-project)
+  - [Step 2: Install Packages](#step-2-install-packages)
+  - [Step 3: Setup Settings (.env)](#step-3-setup-settings-env)
+  - [Step 4: Start the App](#step-4-start-the-app)
+  - [Step 5: Build for Production](#step-5-build-for-production)
+  - [Common Questions & Fixes](#-common-questions--fixes)
+- [📊 4. 10 Sorting Algorithms & Speed Comparison Table](#-4-10-sorting-algorithms--speed-comparison-table)
+- [🧩 5. All 10 Cool Features Inside AlgoViz Pro](#-5-all-10-cool-features-inside-algoviz-pro)
+- [🎓 6. MSBTE Diploma (Course 22317) Practical Mapping](#-6-msbte-diploma-course-22317-practical-mapping)
+- [💻 7. Tech Stack Used](#-7-tech-stack-used)
+- [⌨️ 8. Easy Keyboard Shortcuts](#-8-easy-keyboard-shortcuts)
+- [📁 9. Folder Structure Explained](#-9-folder-structure-explained)
+- [📚 10. More Help & Documentation Guides](#-10-more-help--documentation-guides)
+- [📜 11. License & Credits](#-11-license--credits)
 
 ---
 
-## 📌 1. Executive Summary & Mission
+## 🌟 1. What is AlgoViz Pro?
 
-Traditional sorting visualizers rely on pre-recorded animations or canned transitions. When students attempt to inspect edge cases or examine real code, those visualizers fail to reflect true runtime behavior.
+Most sorting visualizers on the internet show fake animations. When you want to see what happens in a real computer, they don't show the real steps.
 
-**AlgoViz Pro runs genuine, deterministic sorting implementations in real time.** Every algorithm executes step-by-step against arbitrary in-memory arrays and emits an immutable event stream containing:
-- Specific element indices under inspection
-- Operation classifications (`compare`, `swap`, `write`, `pivot`, `active`, `mark-sorted`, `complete`)
-- Runtime metrics (comparisons, memory swaps, auxiliary writes)
-- Human-readable educational rationale explaining *why* the operation took place
-
-### Target Audience
-1. **MSBTE Diploma Students (Computer Technology & Computer Engineering):** Exact syllabus match for Course Code **22317** (Data Structures Using 'C'), covering all 5 mandatory sorting practicals with printable lab manual sheets and viva questions.
-2. **Undergraduate Engineering Students (B.E. / B.Tech CSE & IT):** Deep mathematical asymptotic proofs ($O(n^2)$, $O(n \log n)$, $O(n)$), stability proofs, and recurrence relations.
-3. **Coding Bootcamp Candidates & Interviewees:** Master multi-language implementations (C, C++, Java, Python, TypeScript) and debug tricky edge cases (already sorted, reversed, duplicate heavy, and negative values).
-
-Existing Repository Reference: [https://github.com/prathameshsutar140/sorting-visualizer](https://github.com/prathameshsutar140/sorting-visualizer)
+**AlgoViz Pro runs real code in real-time!**
+- 🔍 See each number get compared and swapped one by one.
+- ⏪ **Move backward and forward:** Pause anytime and scrub back to earlier steps!
+- 🎧 **Sound Effects:** Hear the pitches go from low to high as the numbers get sorted.
+- 💻 **Real Code:** Read code in **C, C++, Java, Python, and TypeScript**.
+- 📋 **MSBTE Practicals:** Get complete C programs with viva questions and printable lab sheets.
 
 ---
 
-## 🎯 2. Four Core Educational Pillars
+## 🎯 2. Four Ways You Will Learn
 
-```
-+-----------------------------------------------------------------------------------+
-|                                 ALGOVIZ PRO                                      |
-+---------------------+---------------------+-------------------+-------------------+
-|  1. VISUAL LEARNING | 2. CODE LEARNING    | 3. PERFORMANCE    | 4. REAL-WORLD     |
-|                     |                     |    BENCHMARKING   |    APPLICATIONS   |
-+---------------------+---------------------+-------------------+-------------------+
-| - Bar & Memory Mode | - 5 Languages       | - Cloned Datasets | - Multi-field     |
-| - Timeline Scrubber | - Line-by-Line Help | - Empirical vs    |   Object Records  |
-| - Audio Synthesis   | - Sandboxed Runner  |   Asymptotic BigO | - Enterprise Apps |
-| - Micro-Op Engine   | - Edge-Case Suites  | - Metric Charts   | - No Detached Data|
-+---------------------+---------------------+-------------------+-------------------+
+| Icon | Learning Pillar | How It Helps You |
+|:---:|---|---|
+| 👁️ | **1. Visual Learning** | Watch bars move and memory cells highlight in real-time so you never have to memorize blindly. |
+| 💻 | **2. Code Learning** | Click any line of code to see what it does, why it is needed, and which variable changes. |
+| ⏱️ | **3. Performance Testing** | Run multiple algorithms on the exact same numbers to see which one is fastest. |
+| 🏢 | **4. Real-World Systems** | See how sorting is used in Student Marks systems, E-Commerce, Banking, and Hospitals without mixing up records. |
+
+---
+
+## 🚀 3. Easy Step-by-Step Setup Guide
+
+Follow these 5 simple steps to run AlgoViz Pro on your computer.
+
+### 📋 Prerequisites
+Make sure you have these two free programs installed:
+1. **Node.js** (Version 18 or newer) 👉 [Download from nodejs.org](https://nodejs.org/)
+2. **Git** 👉 [Download from git-scm.com](https://git-scm.com/)
+
+You can check if they are installed by typing these commands in your terminal or Command Prompt:
+```bash
+node -v
+npm -v
+git --version
 ```
 
-1. **Visual Learning:** Watch algorithms divide, partition, shift, and heapify data with animated vertical bars or indexed memory cells with pointer heads.
-2. **Programming Learning:** Inspect real source code in **C, C++, Java, Python 3, and TypeScript**. Click any line to open an interactive drawer explaining *what it does*, *why it is needed*, *which variables change*, and *how it affects array state*.
-3. **Performance Analysis:** Benchmark up to 6 algorithms simultaneously on the **exact same randomized dataset** to observe why $O(n \log n)$ dominates $O(n^2)$ when $n$ increases from 10 to 500.
-4. **Real-World Systems:** Discover how sorting powers 6 real software applications (Student Registers, E-Commerce, Library Catalogs, Banking Ledgers, Hospital Triage, and Warehouse Inventory) with absolute record integrity.
-
 ---
 
-## 🚀 3. Complete Step-by-Step Setup & Installation Guide
-
-Follow these exact steps to run AlgoViz Pro on your local workstation or server.
-
-### Prerequisites
-
-| Tool | Minimum Version | Recommended Version | Verification Command |
-|---|---|---|---|
-| **Node.js** | `v18.0.0` | `v20.x` or `v22.x` (LTS) | `node -v` |
-| **npm** | `v9.0.0` | `v10.x` or higher | `npm -v` |
-| **Git** | `v2.25.0` | Latest | `git --version` |
-| **Web Browser** | Modern Chrome, Firefox, Edge, Safari with Web Audio API enabled |
-
----
-
-### Step 1: Clone Repository
+### Step 1: Download or Clone the Project
+Open your terminal (or Command Prompt) and type:
 
 ```bash
-# Clone the repository to your local computer
+# Clone the repository
 git clone https://github.com/prathameshsutar140/sorting-visualizer.git
 
-# Navigate into the project directory
+# Go into the project folder
 cd sorting-visualizer
 ```
 
 ---
 
-### Step 2: Install Dependencies
-
-AlgoViz Pro uses a unified full-stack architecture. Run `npm install` to install all frontend and backend dependencies:
+### Step 2: Install Packages
+Download and install all needed libraries:
 
 ```bash
 npm install
 ```
-
-**Key Packages Installed:**
-- `react`, `react-dom` (v19) - Core UI layer
-- `vite` (v8) - Lightning-fast frontend build engine and dev middleware
-- `tailwindcss` (v4), `@tailwindcss/vite` - Utility-first styling engine
-- `express` (v4), `@types/express` - Backend API proxy and sandbox test server
-- `tsx` - Instant TypeScript execution for the Node.js server
-- `@google/genai` (v2.4.0) - Official Google Gemini SDK for AlgoBuddy AI
-- `lucide-react` - Modern iconography
-- `canvas-confetti` - Gamification celebration particle engine
+*(This takes about 15–30 seconds to finish).*
 
 ---
 
-### Step 3: Configure Environment Variables
-
-Create your local `.env` configuration file by copying `.env.example`:
+### Step 3: Setup Settings (.env)
+Copy the example settings file:
 
 ```bash
+# On Linux / macOS / Git Bash:
 cp .env.example .env
+
+# On Windows Command Prompt:
+copy .env.example .env
 ```
 
-Open `.env` in your text editor (VS Code, Nano, Vim, etc.):
-
+Your `.env` file will look like this:
 ```env
-# Port on which the Express server and Vite frontend will be served
 PORT=3000
-
-# Optional: Google Gemini API Key for AlgoBuddy AI Assistant
-# Get a free key at: https://aistudio.google.com/
-GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE"
-
-# Base URL for self-referential links and OAuth callbacks
+GEMINI_API_KEY=""
 APP_URL="http://localhost:3000"
 ```
 
-> 🛡️ **Zero API Key Requirement for Core Features:**
-> If you do **not** have a Gemini API key or are offline, **AlgoViz Pro still runs at 100% functionality!** AlgoBuddy features a built-in offline educational knowledge base that automatically answers DSA, viva questions, and time complexity derivations without requiring an internet connection.
+> 💡 **Good News:** You **do not** need an API key to run AlgoViz Pro!  
+> If you leave `GEMINI_API_KEY=""` empty, AlgoViz Pro automatically uses its built-in offline educational tutor to answer all your DSA and viva questions.
 
 ---
 
-### Step 4: Launch Development Server
-
-Start the full-stack development server:
+### Step 4: Start the App
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Output should indicate:
-```
-==================================================
-  AlgoViz Pro – Algorithm Platform Server
-  Port:        3000
-  Mode:        development
-  AI Enabled:  true / false (Offline Fallback Ready)
-==================================================
-```
+Now open your web browser (Chrome, Edge, Firefox, or Safari) and go to:
+👉 **`http://localhost:3000`**
 
-Now open your web browser and navigate to:
-```
-http://localhost:3000
-```
+🎉 **That's it! AlgoViz Pro is now running on your computer!**
 
 ---
 
-### Step 5: Production Build & Deployment
-
-To compile the application into high-performance static client bundles and launch the production server:
+### Step 5: Build for Production
+When you are ready to create an optimized production version:
 
 ```bash
-# 1. Type-check and build production assets
+# 1. Compile the code
 npm run build
 
-# 2. Start the production Node/Express server
+# 2. Run the production server
 npm start
 ```
 
 ---
 
-### Troubleshooting & FAQs
+### ❓ Common Questions & Fixes
 
-#### Q1: Port 3000 is already in use
-If another service is using port 3000:
-- Specify an alternate port in your `.env`: `PORT=3001`
-- Or run: `PORT=3001 npm run dev`
-
-#### Q2: Web Audio API sound does not play
-Browsers require user interaction before an `AudioContext` can synthesize sound. Click any button on the screen or toggle the sound button in the top navbar (`Mute / Unmute Sound`).
-
-#### Q3: Code playground returns test errors
-The sandbox validates your code against 5 test suites. Ensure your sorting function modifies the array in-place or returns the sorted array, and handles negative values and duplicate elements.
+- **Q: Port 3000 is already in use?**  
+  👉 **Fix:** Open `.env` and change `PORT=3000` to `PORT=3001`, then run `npm run dev`.
+- **Q: I don't hear any sound?**  
+  👉 **Fix:** Browsers require you to click on the page first before playing sound. Click anywhere on the screen or click the **Sound** button at the top!
+- **Q: Can I use this offline without internet?**  
+  👉 **Fix:** Yes! 100% of the visualizer, code studio, comparison lab, practicals, quiz, and offline AI tutor work completely offline.
 
 ---
 
-## 💻 4. Technology Stack & Architectural Overview
+## 📊 4. 10 Sorting Algorithms & Speed Comparison Table
 
-```
-                       +-----------------------------------+
-                       |        Browser Client (SPA)       |
-                       |  React 19 + TypeScript + Tailwind |
-                       +-----------------+-----------------+
-                                         |
-                                         | HTTP / REST
-                                         v
-+-----------------------------------------------------------------------------------+
-|                         Express Server (server.ts : 3000)                        |
-|                                                                                   |
-|  [Vite Dev Middlewares]    [/api/health]       [/api/gemini/chat]   [/api/code/run]
-|  Serves HMR & Client Bundles   Health Check    Gemini 3.8 Flash Proxy  Sandboxed   |
-|                                                + Offline Fallback   Test Runner   |
-+--------------------------------------------------------+--------------------------+
-                                                         |
-                                                         v
-                                              [Google Gemini API]
-                                             (Zero client key leak)
-```
+Here is a simple cheat-sheet of all 10 algorithms implemented in the app:
 
-- **Frontend:** React 19, TypeScript, Vite 8, Tailwind CSS 4, Lucide Icons
-- **Visual Rendering:** High-performance CSS Flex/Transform engine capable of smooth 60 FPS transitions up to 500 array elements
-- **Audio Synthesis:** Web Audio API oscillator bank mapping array values to musical scale frequencies (220 Hz – 880 Hz)
-- **Backend API:** Node.js Express server mounting Vite middlewares in development and serving static assets in production
-- **AI Engine:** Google Gemini 3.8 Flash accessed strictly server-side with `aistudio-build` telemetry
+| # | Algorithm | Level | Best Time | Average Time | Worst Time | Extra Memory | Keeps Order? (Stable) | In-Place? | MSBTE Practical |
+|:---:|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 1 | 🫧 **Bubble Sort** | Beginner | $O(n)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ | ✅ Yes | ✅ Yes | 📝 Practical 01 |
+| 2 | 🎯 **Selection Sort** | Beginner | $O(n^2)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ | ❌ No | ✅ Yes | 📝 Practical 02 |
+| 3 | 🃏 **Insertion Sort** | Beginner | $O(n)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ | ✅ Yes | ✅ Yes | 📝 Practical 03 |
+| 4 | 🔀 **Merge Sort** | Medium | $O(n \log n)$ | $O(n \log n)$ | $O(n \log n)$ | $O(n)$ | ✅ Yes | ❌ No | 📝 Practical 04 |
+| 5 | ⚡ **Quick Sort** | Medium | $O(n \log n)$ | $O(n \log n)$ | $O(n^2)$ | $O(\log n)$ | ❌ No | ✅ Yes | 📝 Practical 05 |
+| 6 | 🐚 **Shell Sort** | Medium | $O(n \log n)$ | $O(n^{1.3})$ | $O(n^2)$ | $O(1)$ | ❌ No | ✅ Yes | 💡 Theory Guide |
+| 7 | 🌳 **Heap Sort** | Advanced | $O(n \log n)$ | $O(n \log n)$ | $O(n \log n)$ | $O(1)$ | ❌ No | ✅ Yes | 💡 Theory Guide |
+| 8 | 🔢 **Counting Sort** | Advanced | $O(n + k)$ | $O(n + k)$ | $O(n + k)$ | $O(n + k)$ | ✅ Yes | ❌ No | 💡 Non-Comparison |
+| 9 | 🎴 **Radix Sort** | Advanced | $O(d \cdot n)$ | $O(d \cdot n)$ | $O(d \cdot n)$ | $O(n + b)$ | ✅ Yes | ❌ No | 💡 Non-Comparison |
+| 10 | 🪣 **Bucket Sort** | Advanced | $O(n + k)$ | $O(n + k)$ | $O(n^2)$ | $O(n + k)$ | ✅ Yes | ❌ No | 💡 Distribution |
+
+### 💡 Simple Explanations:
+- **Best Time:** How fast it runs when the numbers are already sorted.
+- **Worst Time:** How slow it gets in the worst possible order (like reverse order).
+- **Stable:** If two items have the same value (e.g. two `5`s), a stable sort keeps their original order.
+- **In-Place:** Does not need extra memory arrays to sort.
 
 ---
 
-## 📊 5. Implemented Algorithms & Complexity Reference Matrix
+## 🧩 5. All 10 Cool Features Inside AlgoViz Pro
 
-All 10 algorithms are genuinely implemented in `src/algorithms/engine.ts`:
+### 1. 🎛️ Interactive Visualizer
+- **Two Visual Modes:**
+  - 📊 **Bar Mode:** Vertical colored bars that rise and fall.
+  - 🧱 **Array Mode:** Memory blocks showing index numbers (`0, 1, 2...`) and pointer tags (`CMP`, `SWAP`, `PIVOT`, `✓`).
+- **Timeline Scrubber:** Drag the slider backward or forward to inspect any step!
+- **Play Controls:** Play, Pause, Single Step, Restart from zero, and Shuffle.
+- **Dataset Sizes:** 10, 25, 50, 100, 250, or 500 items.
+- **Custom Input:** Type in your own numbers (e.g. `64, 34, 25, 12, 22, 11, 90`).
 
-| # | Algorithm | Level | Best Time | Average Time | Worst Time | Space | Stable? | In-Place? | Adaptive? | MSBTE Practical |
-|---|---|---|---|---|---|---|:---:|:---:|:---:|:---:|
-| 1 | **Bubble Sort** | Beginner | $\Omega(n)$ | $\Theta(n^2)$ | $O(n^2)$ | $O(1)$ | ✅ Yes | ✅ Yes | ✅ Yes (Flagged) | Practical 01 |
-| 2 | **Selection Sort** | Beginner | $\Omega(n^2)$ | $\Theta(n^2)$ | $O(n^2)$ | $O(1)$ | ❌ No | ✅ Yes | ❌ No | Practical 02 |
-| 3 | **Insertion Sort** | Beginner | $\Omega(n)$ | $\Theta(n^2)$ | $O(n^2)$ | $O(1)$ | ✅ Yes | ✅ Yes | ✅ Yes | Practical 03 |
-| 4 | **Merge Sort** | Intermediate | $\Omega(n \log n)$ | $\Theta(n \log n)$ | $O(n \log n)$ | $O(n)$ | ✅ Yes | ❌ No | ❌ No | Practical 04 |
-| 5 | **Quick Sort** | Intermediate | $\Omega(n \log n)$ | $\Theta(n \log n)$ | $O(n^2)$ | $O(\log n)$ | ❌ No | ✅ Yes | ❌ No | Practical 05 |
-| 6 | **Shell Sort** | Intermediate | $\Omega(n \log n)$ | $\Theta(n^{1.3})$ | $O(n^2)$ | $O(1)$ | ❌ No | ✅ Yes | ✅ Yes | Reference |
-| 7 | **Heap Sort** | Advanced | $\Omega(n \log n)$ | $\Theta(n \log n)$ | $O(n \log n)$ | $O(1)$ | ❌ No | ✅ Yes | ❌ No | Reference |
-| 8 | **Counting Sort** | Advanced | $\Omega(n + k)$ | $\Theta(n + k)$ | $O(n + k)$ | $O(n + k)$ | ✅ Yes | ❌ No | ❌ No | Non-Comparison |
-| 9 | **Radix Sort** | Advanced | $\Omega(d(n + b))$ | $\Theta(d(n + b))$ | $O(d(n + b))$ | $O(n + b)$ | ✅ Yes | ❌ No | ❌ No | Non-Comparison |
-| 10 | **Bucket Sort** | Advanced | $\Omega(n + k)$ | $\Theta(n + k)$ | $O(n^2)$ | $O(n + k)$ | ✅ Yes | ❌ No | ❌ No | Distribution |
+### 2. 📖 Learn & Viva Voce Masterclass
+- Clear textbook definitions and step-by-step logic.
+- 📐 **Interactive Flowcharts** showing how decisions are made.
+- 🎓 **MSBTE Viva Voce Q&A:** The exact questions teachers ask during oral exams, with perfect answers.
 
----
+### 3. 💻 Code Studio (5 Languages)
+- View full source code in **C, C++, Java, Python, and TypeScript**.
+- 🔍 **Click Any Line:** A drawer pops up explaining:
+  1. *What this line does*
+  2. *Why it is needed*
+  3. *Which variable it changes*
+- Download the code files directly with one click!
 
-## 🧩 6. Deep-Dive Module Breakdown (10 Core Modules)
+### 4. 🧪 Code Playground & Test Runner
+- Write your own sorting code directly in the browser!
+- 🤖 **Auto-Test Runner:** Automatically tests your code against 5 tricky cases:
+  1. Regular unsorted array
+  2. Already sorted array
+  3. Reverse sorted array
+  4. Array with duplicates
+  5. Array with negative numbers (`-5, -1, 0, 4`)
 
-### Module 1: Interactive Sorting Visualizer
-- **Dual Display Modes:**
-  - *Bar Mode:* Vertical proportional bars with glowing color-coded states.
-  - *Memory Cell Mode:* Discrete memory blocks displaying index numbers, cell values, and active pointer tags (`CMP`, `SWAP`, `PIVOT`, `ACTIVE`, `✓ SORTED`).
-- **Granular Timeline Scrubber:** Drag the slider across all recorded micro-steps to pause, reverse, inspect, and step through the algorithm at your own pace.
-- **Playback Controls:** Play, Pause, Single Step Forward, Single Step Backward, Reset to Step 0, and Shuffle Array.
-- **Speed Slider:** Adjust execution speed continuously from 0.2x (slow motion for classroom teaching) up to 5.0x (rapid completion).
-- **Dataset Distributions:** Random, Ascending (Already Sorted), Descending (Worst Case), Nearly Sorted (8% inversions), Duplicates (few unique values), and Custom Array Input modal (e.g. `54, 26, 93, 17, 77, 31, 44, 55, 20`).
-- **Scalable Dataset Sizes:** 10, 25, 50, 100, 250, 500 items.
+### 5. ⚖️ Comparison Benchmark Lab
+- Pick 2 to 6 algorithms and run them at the same time on the **exact same array**.
+- See bar charts showing who did fewer comparisons and fewer swaps.
 
-### Module 2: Algorithm Theory & Viva Voce Masterclass
-- Educational breakdowns designed for diploma students.
-- **Visual Flowcharts:** Interactive step-by-step logic diagrams.
-- **Mathematical Complexity Derivations:** Best case, average case, worst case, and auxiliary space bounds.
-- **Stability & Adaptability Analysis:** Plain-English explanations with counter-examples.
-- **MSBTE Viva Voce Q&A Bank:** Verified oral examination questions with model answers.
+### 6. 🏢 Real-World Software Systems
+Learn how sorting works in real applications without scrambling data:
+1. 🎓 **Student System:** Sort by Roll Number, Marks %, or Attendance %.
+2. 🛒 **E-Commerce Shop:** Sort by Price (₹), Customer Rating, or Best Seller.
+3. 📚 **Library Catalog:** Sort by Book Title, Author, or Year.
+4. 🏦 **Bank Ledger:** Sort by Date, Amount (₹), or Transaction ID.
+5. 🏥 **Hospital Emergency:** Sort patients by Urgency (Emergency, Priority, Normal).
+6. 📦 **Warehouse Inventory:** Sort items by Stock count or Price.
 
-### Module 3: Code Learning Studio (5 Languages)
-- Real implementations in **C**, **C++**, **Java**, **Python 3**, and **TypeScript**.
-- **Interactive Line-by-Line Breakdown:** Click any line in the code editor to open an explanatory drawer:
-  1. *What the statement does*
-  2. *Why it is necessary in the algorithm*
-  3. *Which variables or memory locations it modifies*
-  4. *How it drives the array toward its sorted state*
-- One-click copy and source code file download (`.c`, `.cpp`, `.java`, `.py`, `.ts`).
+### 7. 📄 MSBTE Lab Practicals (Course 22317)
+- Contains complete guides for all 5 diploma practicals (Bubble, Selection, Insertion, Merge, Quick Sort).
+- Includes: Aim, Theory, Algorithm steps, Full C Program, Sample Output, and Viva questions.
+- 🖨️ **Printable Lab Sheet:** Click "Print / Export PDF" to print a clean lab manual page ready to submit to your teacher!
 
-### Module 4: Sandboxed Code Playground & Test Runner
-- In-browser code editor with preloaded starter templates.
-- **Server-Side Sandbox Test Suite (`/api/code/run`):** Executes student code against 5 test suites:
-  - *Test 1:* General unsorted random array
-  - *Test 2:* Already sorted array (verifying $\Omega(n)$ behavior)
-  - *Test 3:* Reverse sorted array (verifying worst-case boundary)
-  - *Test 4:* Array with heavy duplicate values (verifying stability and branch safety)
-  - *Test 5:* Array containing negative integers (verifying sign handling)
-- Console output with elapsed execution time and total comparisons.
+### 8. ❓ Interactive DSA Quiz
+- Multiple-choice questions to test your knowledge.
+- Timed 5-minute practice mode.
+- Instant score, review, and explanations.
 
-### Module 5: Multi-Algorithm Comparison Benchmark Lab
-- Select 2 to 6 algorithms and benchmark them simultaneously on the **exact same cloned dataset**.
-- Side-by-side comparative bar charts for total comparisons and memory writes.
-- Summary matrix contrasting empirical measurements against theoretical Big-O curves.
+### 9. 🏆 Challenge Quests & Puzzles
+- 🕵️ **Mystery Algorithm:** Guess the algorithm by watching it swap!
+- 🔮 **State Prediction:** Guess what the array will look like after pass 2.
+- 🐛 **Bug Hunter:** Find the small bug inside broken code.
+- Win points and see confetti explosions when you finish!
 
-### Module 6: Sorting in Real-World Enterprise Systems
-Shows how real production software sorts multi-field business objects without corrupting data:
-1. **MSBTE Student Information System:** Sort by Roll No, Student Name, Semester Marks %, or Attendance %.
-2. **E-Commerce Catalog:** Sort by Price in ₹, Customer Star Rating, or Sales Popularity.
-3. **Library Management System:** Sort by Accession Number, Book Title, Author, or Publication Year.
-4. **Banking Ledger & Transaction History:** Sort by Transaction Date, Amount in ₹, Reference ID, or Debit/Credit status.
-5. **Hospital Emergency Triage System:** Sort by Clinical Urgency (Emergency / Priority / Normal), Token Number, or Arrival Time.
-6. **Warehouse Inventory:** Sort by Unit Price, Quantity in Stock, Product SKU, or Reorder Priority.
-
-### Module 7: MSBTE Lab Practicals (Course 22317) & PDF Export
-- 5 Complete curriculum practicals:
-  - **Practical 01:** Bubble Sort implementation & analysis
-  - **Practical 02:** Selection Sort implementation & analysis
-  - **Practical 03:** Insertion Sort implementation & analysis
-  - **Practical 04:** Merge Sort implementation (Divide & Conquer)
-  - **Practical 05:** Quick Sort implementation (Partition Exchange)
-- Each practical contains: Aim, Prerequisites, Algorithm Steps, Flowchart, Complete ANSI C Program, Sample Input/Output, Conclusion, and 10+ Viva Questions.
-- Student completion checkbox linked to local profile storage.
-- **Print / PDF Lab Manual Sheet:** Generates an official formatted lab manual page ready for college submission.
-
-### Module 8: Interactive DSA Quiz Assessment System
-- Multiple-choice questions categorized by topic:
-  - Algorithm Concepts & Mechanics
-  - Asymptotic Time & Space Complexity
-  - Next-Step & State Prediction
-  - Code Analysis & Bug Spotting
-  - Real-World Algorithm Selection
-- Timed assessment mode, instant feedback, scoring, and explanation reviews.
-
-### Module 9: Gamified Algorithm Challenge Quests
-- Problem-solving puzzles:
-  - *Mystery Sort Identifier:* Identify an algorithm purely from its comparison/swap pattern.
-  - *State Prediction Quest:* Calculate array state after $k$ passes.
-  - *Bug Hunter Challenge:* Detect off-by-one errors and loop faults in faulty implementations.
-- Confetti celebration animations, point rewards, and daily streak tracking.
-
-### Module 10: AlgoBuddy AI Tutor (Gemini 3.8 Flash + Offline Fallback)
-- Accessible from the global navigation bar (`AlgoBuddy AI`).
-- Powered by `gemini-3.8-flash` via secure backend proxy (`/api/gemini/chat`).
-- Preconfigured prompts for:
-  - Explaining complex recurrence relations ($T(n) = 2T(n/2) + O(n)$)
-  - Answering MSBTE oral viva questions
-  - Generating custom code examples in any language
-  - Debugging student code snippets
-- Automatic fallback to offline curriculum when offline.
+### 10. 🤖 AlgoBuddy AI Assistant
+- Click **AlgoBuddy AI** at the top right.
+- Ask any question about sorting, time complexity, or viva preparation.
+- Powered by Google Gemini 3.8 Flash (with automatic offline backup).
 
 ---
 
-## 🎓 7. MSBTE Diploma (Course 22317) Curriculum Mapping
+## 🎓 6. MSBTE Diploma (Course 22317) Practical Mapping
 
-| Syllabus Unit | Topic & Competency | Relevant AlgoViz Pro Module | Practical No. |
-|---|---|---|:---:|
-| **Unit 4: Sorting & Searching** | Bubble Sort Algorithm, Pass analysis | Visualizer + Practical Guide 01 | **Practical 01** |
-| **Unit 4: Sorting & Searching** | Selection Sort Algorithm, Min index | Visualizer + Practical Guide 02 | **Practical 02** |
-| **Unit 4: Sorting & Searching** | Insertion Sort, Key insertion, Shifts | Visualizer + Practical Guide 03 | **Practical 03** |
-| **Unit 4: Sorting & Searching** | Merge Sort, Divide & Conquer logic | Visualizer + Practical Guide 04 | **Practical 04** |
-| **Unit 4: Sorting & Searching** | Quick Sort, Partitioning, Pivot index | Visualizer + Practical Guide 05 | **Practical 05** |
-| **Course Outcome (CO-d)** | Compare sorting algorithms by complexity | Comparison Lab + Complexity Matrix | All |
-| **Course Outcome (CO-e)** | Apply sorting to solve real-world problems | Real-World Enterprise Systems | Module 6 |
+| Practical No. | Algorithm | Syllabus Chapter | Viva Voce Focus |
+|:---:|---|---|---|
+| **Practical 01** | 🫧 Bubble Sort | Chapter 4: Searching & Sorting | Adjacent swaps, early stopping with flag |
+| **Practical 02** | 🎯 Selection Sort | Chapter 4: Searching & Sorting | Finding minimum, swap count ($O(n)$) |
+| **Practical 03** | 🃏 Insertion Sort | Chapter 4: Searching & Sorting | Shifting elements, best-case $\Omega(n)$ |
+| **Practical 04** | 🔀 Merge Sort | Chapter 4: Searching & Sorting | Divide and Conquer, extra memory $O(n)$ |
+| **Practical 05** | ⚡ Quick Sort | Chapter 4: Searching & Sorting | Pivot selection, partitioning, worst-case $O(n^2)$ |
 
 ---
 
-## 🔊 8. Real-Time Event Engine & Audio Synthesis Architecture
+## 💻 7. Tech Stack Used
 
-### Micro-Step Event Schema
-Every sorting algorithm in `src/algorithms/engine.ts` is a generator that records discrete events:
-
-```typescript
-export interface SortEvent {
-  type: 'compare' | 'swap' | 'write' | 'pivot' | 'active' | 'mark-sorted' | 'complete';
-  indices: number[];           // Array indices involved in the operation
-  values?: number[];          // Element values involved
-  arraySnapshot: number[];    // Immutable copy of the array after the operation
-  description: string;        // Human-readable explanation of why this step occurred
-  comparisonsCount: number;   // Cumulative comparison counter
-  swapsCount: number;         // Cumulative swap/write counter
-}
-```
-
-### Web Audio Synthesis Formula
-When audio is enabled, each comparison or swap triggers an audio harmonic:
-
-$$\text{Frequency} = f_{\min} + \left( \frac{\text{Value} - \text{Min}}{\text{Max} - \text{Min}} \right) \times (f_{\max} - f_{\min})$$
-
-Where $f_{\min} = 220\text{ Hz}$ (A3) and $f_{\max} = 880\text{ Hz}$ (A5). Swaps generate dynamic triangle waveforms while comparisons generate gentle sine waves, providing an acoustic representation of entropy decreasing as the array becomes sorted.
+- ⚛️ **Frontend:** React 19 + TypeScript
+- ⚡ **Build Tool:** Vite 8 (Ultra fast)
+- 🎨 **Styling:** Tailwind CSS 4 (Developer dark theme)
+- 🎵 **Sound:** Web Audio API (Musical pitch synthesis)
+- 🖥️ **Backend:** Node.js + Express
+- 🧠 **AI Tutor:** Google Gemini 3.8 Flash (`@google/genai`)
+- 📦 **Icons:** Lucide React
 
 ---
 
-## 🔌 9. Backend REST API Reference
+## ⌨️ 8. Easy Keyboard Shortcuts
 
-The Express backend runs on port 3000 (`server.ts`):
-
-### 1. Health & Status
-```http
-GET /api/health
-```
-**Response:**
-```json
-{
-  "status": "ok",
-  "app": "AlgoViz Pro",
-  "aiEnabled": true
-}
-```
-
-### 2. AlgoBuddy AI Chat Proxy
-```http
-POST /api/gemini/chat
-Content-Type: application/json
-
-{
-  "message": "Explain why Merge Sort is stable while Quick Sort is unstable."
-}
-```
-**Response:**
-```json
-{
-  "reply": "Merge Sort preserves the relative order of duplicate elements because...",
-  "source": "gemini" // or "offline-knowledge-base"
-}
-```
-
-### 3. Sandboxed Code Runner
-```http
-POST /api/code/run
-Content-Type: application/json
-
-{
-  "language": "javascript",
-  "algorithm": "bubble",
-  "code": "function sort(arr) { ... return arr; }"
-}
-```
-**Response:**
-```json
-{
-  "success": true,
-  "results": [
-    { "name": "Random Array", "passed": true, "input": [5, 2, 8, 1], "output": [1, 2, 5, 8] },
-    { "name": "Already Sorted", "passed": true, "input": [1, 2, 3, 4], "output": [1, 2, 3, 4] },
-    { "name": "Reverse Sorted", "passed": true, "input": [9, 7, 5, 3], "output": [3, 5, 7, 9] },
-    { "name": "Duplicates", "passed": true, "input": [4, 2, 4, 2], "output": [2, 2, 4, 4] },
-    { "name": "Negative Numbers", "passed": true, "input": [-3, 5, 0, -1], "output": [-3, -1, 0, 5] }
-  ],
-  "metrics": { "executionTimeMs": 2, "comparisons": 10 }
-}
-```
+| Shortcut Key | What it Does |
+|---|---|
+| `Ctrl + K` or `Cmd + K` | 🔍 Open Quick Search box |
+| `Spacebar` | ⏯️ Play or Pause the sorting animation |
+| `Right Arrow` ($\rightarrow$) | ⏭️ Go 1 step forward |
+| `Left Arrow` ($\leftarrow$) | ⏮️ Go 1 step backward |
+| `R` | 🔄 Restart from step 0 |
+| `S` | 🔀 Shuffle array with new random numbers |
+| `M` | 🔇 Turn sound effects ON or OFF |
+| `Esc` | ❌ Close any open dialog box |
 
 ---
 
-## ⌨️ 10. Keyboard Navigation & Accessibility
-
-| Shortcut | Context | Action |
-|---|---|---|
-| `Ctrl + K` or `Cmd + K` | Global | Open Quick Navigation & Search Dialog |
-| `Space` | Visualizer | Toggle Play / Pause |
-| `Arrow Right` ($\rightarrow$) | Visualizer | Step Forward by 1 micro-operation |
-| `Arrow Left` ($\leftarrow$) | Visualizer | Step Backward by 1 micro-operation |
-| `R` | Visualizer | Restart animation from step 0 |
-| `S` | Visualizer | Shuffle current array with new random values |
-| `M` | Global | Toggle sound effects on/off |
-| `Esc` | Modals | Close open modal or slide-over drawer |
-
----
-
-## 📁 11. Repository & Directory Structure
+## 📁 9. Folder Structure Explained
 
 ```
-├── .env.example                  # Environment variable blueprint
-├── index.html                    # Application entry point with typography
-├── metadata.json                 # AI Studio configuration & capabilities
-├── package.json                  # Dependencies, dev tools & scripts
-├── server.ts                     # Full-stack Node/Express backend & API proxy
-├── tsconfig.json                 # TypeScript strict configuration
-├── vite.config.ts                # Vite bundler configuration
-├── docs/                         # Extended engineering documentation
-│   ├── INSTALLATION.md           # In-depth setup, Docker & troubleshooting
-│   ├── SYSTEM_ARCHITECTURE.md    # Architecture diagrams & event flow
-│   ├── FEATURES.md               # Detailed feature breakdown across modules
-│   ├── API_DOCUMENTATION.md      # REST endpoints & schema specs
-│   ├── USER_GUIDE.md             # Student & instructor user manual
-│   ├── TESTING.md                # Verification test suites & QA procedures
-│   ├── DEPLOYMENT.md             # Cloud Run, VPS, Docker deployment guide
-│   └── PROJECT_OVERVIEW.md       # Pedagogical philosophy & MSBTE mapping
+algoviz-pro/
+├── .env.example              # Example file for settings
+├── README.md                 # This guide you are reading
+├── package.json              # List of dependencies and npm scripts
+├── server.ts                 # Full-stack backend server (API & AI proxy)
+├── docs/                     # Extra in-depth guides
+│   ├── INSTALLATION.md       # Detailed setup & Docker guide
+│   ├── SYSTEM_ARCHITECTURE.md# How events and audio are generated
+│   ├── FEATURES.md           # Deep dive into all 10 features
+│   ├── API_DOCUMENTATION.md  # Backend REST API endpoints
+│   ├── USER_GUIDE.md         # Guide for students and teachers
+│   ├── TESTING.md            # Test cases and quality checklist
+│   ├── DEPLOYMENT.md         # How to host on Cloud Run / VPS
+│   └── PROJECT_OVERVIEW.md   # Syllabus alignment & philosophy
 └── src/
-    ├── main.tsx                  # React DOM mount point
-    ├── App.tsx                   # Master state coordinator & navigation
-    ├── index.css                 # Global Tailwind styles & dark theme
-    ├── types/                    # Strict TypeScript type definitions
-    │   └── index.ts
-    ├── algorithms/               # Deterministic sorting event generator
-    │   └── engine.ts             # 10 algorithm implementations emitting SortEvents
-    ├── data/                     # Verified educational datasets
-    │   ├── algorithmsData.ts     # Theory, proofs, viva Q&A, 5-language code
-    │   ├── realWorldData.ts      # 6 Enterprise datasets with record integrity
-    │   ├── practicalsData.ts     # MSBTE 22317 complete lab practical manuals
-    │   ├── quizData.ts           # Topic-categorized question bank
-    │   └── challengesData.ts     # Gamified puzzle quests
-    ├── utils/                    # Core utilities
-    │   ├── audio.ts              # Web Audio API tone synthesizer
-    │   ├── arrayGenerators.ts    # Distribution generators & custom parser
-    │   └── storage.ts            # LocalStorage student profile persistence
-    └── components/
-        ├── layout/               # Header, navbar, branding
-        ├── dashboard/            # Overview, statistics & hero visualizer
-        ├── visualization/        # Core Visualizer: bar/memory modes & scrubber
-        ├── learning/             # Dedicated theory, flowcharts & viva answers
-        ├── code/                 # Code studio with line-by-line drawer
-        ├── playground/           # Sandboxed code editor & test suite runner
-        ├── comparison/           # Multi-algorithm benchmark comparison lab
-        ├── realworld/            # 6 Enterprise software sorting systems
-        ├── practicals/           # MSBTE 22317 lab sheets & PDF printing
-        ├── quiz/                 # Timed assessment quizzes & review
-        ├── challenges/           # Gamified puzzle quests with confetti
-        ├── ai/                   # AlgoBuddy AI chat drawer
-        └── modals/               # Search, Student Profile, Settings modals
+    ├── App.tsx               # Main app page coordinator
+    ├── algorithms/
+    │   └── engine.ts         # Real code for all 10 sorting algorithms
+    ├── data/
+    │   ├── algorithmsData.ts # Theory, viva questions & 5-language code
+    │   ├── practicalsData.ts # MSBTE 22317 complete lab manuals
+    │   ├── realWorldData.ts  # Enterprise data (Students, Bank, Hospital)
+    │   ├── quizData.ts       # Practice questions
+    │   └── challengesData.ts # Fun quests and puzzle games
+    ├── utils/
+    │   ├── audio.ts          # Musical sound generator
+    │   └── storage.ts        # Saves student XP, streak, and settings
+    └── components/           # UI components for all views and modals
 ```
 
 ---
 
-## 📚 12. Extended Documentation Library
+## 📚 10. More Help & Documentation Guides
 
-For deeper architectural, installation, and deployment details, consult the dedicated guides in the `/docs` directory:
+If you want to read deeper technical details, check out these guides in the `/docs` folder:
 
-- 📖 [**PROJECT_OVERVIEW.md**](./docs/PROJECT_OVERVIEW.md) – Executive summary, MSBTE 22317 alignment, and pedagogical design principles.
-- 🛠️ [**INSTALLATION.md**](./docs/INSTALLATION.md) – Step-by-step installation, Docker containers, environment configuration, and FAQs.
-- 🏗️ [**SYSTEM_ARCHITECTURE.md**](./docs/SYSTEM_ARCHITECTURE.md) – Comprehensive system architecture, data pipelines, and event state machine.
-- ⭐ [**FEATURES.md**](./docs/FEATURES.md) – Feature inventory across all 10 platform modules.
-- 🔌 [**API_DOCUMENTATION.md**](./docs/API_DOCUMENTATION.md) – REST API specification, request/response payloads, and curl commands.
-- 🧑‍💻 [**USER_GUIDE.md**](./docs/USER_GUIDE.md) – Complete guide for diploma students, engineering undergraduates, and lab instructors.
-- 🧪 [**TESTING.md**](./docs/TESTING.md) – Unit test suites, edge case verification, and manual QA validation matrices.
-- 🚢 [**DEPLOYMENT.md**](./docs/DEPLOYMENT.md) – Production deployment instructions for Cloud Run, Docker, VPS, and static hosts.
+- 📖 [**PROJECT_OVERVIEW.md**](./docs/PROJECT_OVERVIEW.md) – Academic background and curriculum details.
+- 🛠️ [**INSTALLATION.md**](./docs/INSTALLATION.md) – Docker instructions and troubleshooting help.
+- 🏗️ [**SYSTEM_ARCHITECTURE.md**](./docs/SYSTEM_ARCHITECTURE.md) – Software architecture and event diagrams.
+- ⭐ [**FEATURES.md**](./docs/FEATURES.md) – Complete list of all features.
+- 🔌 [**API_DOCUMENTATION.md**](./docs/API_DOCUMENTATION.md) – How the backend API works.
+- 🧑‍🎓 [**USER_GUIDE.md**](./docs/USER_GUIDE.md) – Guide for teachers and students.
+- 🧪 [**TESTING.md**](./docs/TESTING.md) – Unit tests and edge case verification.
+- 🚢 [**DEPLOYMENT.md**](./docs/DEPLOYMENT.md) – How to deploy online for your college.
 
 ---
 
-## 📜 13. License & Academic Attribution
+## 📜 11. License & Credits
 
-- **License:** Apache License 2.0. Open source for educational and academic use.
-- **Academic Alignment:** Maharashtra State Board of Technical Education (MSBTE) Course Code 22317 (Data Structures Using 'C').
-- **Author Reference:** [https://github.com/prathameshsutar140/sorting-visualizer](https://github.com/prathameshsutar140/sorting-visualizer)
+- **License:** Apache License 2.0 (Free to use, learn from, and share).
+- **Created For:** MSBTE Diploma & Engineering students across the globe.
+- **Original Repository:** [https://github.com/prathameshsutar140/sorting-visualizer](https://github.com/prathameshsutar140/sorting-visualizer)
+
+🎉 **Happy Learning and Best of Luck for Your Examinations!**
