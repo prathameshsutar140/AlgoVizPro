@@ -36,6 +36,11 @@ app.get('/api/health', (_req: Request, res: Response) => {
   });
 });
 
+// Favicon redirect for legacy requests
+app.get('/favicon.ico', (_req: Request, res: Response) => {
+  res.redirect(301, '/favicon.svg');
+});
+
 // AlgoBuddy AI chat endpoint
 app.post('/api/gemini/chat', async (req: Request, res: Response) => {
   try {
